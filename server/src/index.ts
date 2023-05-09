@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from 'mongoose';
 import Deck from './models/Deck';
+import cors from 'cors';
 import {config} from "dotenv";
 config();
 
@@ -8,10 +9,14 @@ const app = express();
 
 const PORT = process.env.PORT;
 
-app.use(express.json());
 
-app.get("/", (req, res) => {
-    res.send('located in / ')
+app.use(express.json());
+app.use(cors())
+
+app.get('/decks', async (req, res) => {
+    //TODO fetch all decks and send to users
+    const decks = await Deck.find();
+    res.json(decks);
 })
 
 app.post("/decks", async (req, res) => {
