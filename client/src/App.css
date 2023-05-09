@@ -21,6 +21,7 @@
 }
 
 .decks li {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,4 +32,11 @@
 
 .decks li:hover {
   background-color: brown;
+}
+
+.decks li button{
+  position: absolute;
+  font-size: 10px;
+  top: 0;
+  right: 5px;
 }

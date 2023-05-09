@@ -28,6 +28,16 @@ app.post("/decks", async (req, res) => {
     res.json(createdDeck);
 })
 
+app.delete('/decks/:deckId', async (req, res) => {
+    //TODO
+    //get deck id from url
+    //delete the deck from mongo
+    //return the deleted deck to the user who made the request
+    const deckId = req.params.deckId;
+    const deck = await Deck.findByIdAndDelete(deckId);
+    res.json(deck);
+})
+
 mongoose.connect(process.env.MONGO_URL!).then(() => {
         console.log(`listening on port ${PORT}`);
         app.listen(PORT);
