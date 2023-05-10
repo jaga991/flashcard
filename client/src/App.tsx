@@ -32,16 +32,16 @@ function App() {
 
   return (
     <div className="App">
-      <div className='decks'>
+      <ul className='decks'>
         {
           decks.map((deck) => 
           <li key={deck._id}>
             <button onClick={() => handleDeleteDeck(deck._id)}>X</button>
             
-            <Link to={`decks/${decks._id}`}>{deck.title}</Link>
+            <Link to={`decks/${deck._id}`}>{deck.title}</Link>
           </li>)
         }
-      </div>
+      </ul>
       <form onSubmit={handleCreateDeck}>
         <label htmlFor="deck-title">Deck Title</label>
         <input id="deck-title" type="text" 
