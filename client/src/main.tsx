@@ -17,8 +17,7 @@ const router = createBrowserRouter([
     path: "/decks/:deckId",
     element: <Deck />
   },
-],
-{ basename: "/" });
+]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
