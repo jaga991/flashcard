@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import { Link, useParams } from 'react-router-dom';
-import { deleteDeck } from './api/deleteDeck';
-import { TDeck, getDecks } from './api/getDecks';
-import { createDeck } from './api/createDeck';
+import { TDeck } from './api/getDecks';
 import { createCard } from './api/createCard';
 import { getDeck } from './api/getDeck';
 import { deleteCard } from './api/deleteCard';
@@ -27,16 +25,14 @@ export default function Deck() {
         setCards(newDeck.cards);
     }
 
-    async function handleReturnToDecks() {
-
-    }
-
     useEffect(() => {
         
         async function fetchDeck() {
         if(!deckId) return;
         const newDeck = await getDeck(deckId);
+        //@ts-ignore
         setDeck(newDeck)
+        //@ts-ignore
         setCards(newDeck.cards);
         }
         fetchDeck();
